@@ -8,6 +8,7 @@ function sendEmails(){
     var cost = "$0";
     
     while (emailed != nullCell){
+      
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GET CLASS COST~~~~~~~~~~~~~~~~~~~~~~~~~
        var class = theSheet.getRange(number, 9).getValue();
       
@@ -18,7 +19,7 @@ function sendEmails(){
        } else if (class == "Level 5" || class == "Level 6" || class == "Level 7" || class == "Level 8" || class == "Level 9" || class == "Level 10"){
           cost = "$55";
        } else{
-          cost = "ERROR please contact pool.greenwoodcity@gmail.com for more information.";
+          cost = "\n\nERROR please contact pool.greenwoodcity@gmail.com for more information.\n\n";
        }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
@@ -30,13 +31,32 @@ function sendEmails(){
       
         var messageLine1 = '\n\nThank you for registering ' + childName + ' for RCSK ' + class + ' in ' + session + ' at the Greenwood Municipal Swimming Pool.'; 
         var messageLine2 = '\nThe outstanding balance for this registration is ' + cost;
-        var finalLine = '\n'
-        var message = messageLine1 + messageLine2 + finalLine;
+        var messageLine3 = '\nIf you have registered any other children or for any other sessions you can expect emails confirming those registrations.';
+        var messageLine4 = '\n\nPlease ensure you pay your outstanding fees at least a week prior to your program start date, unpaid accounts risk losing their placement to those on the Wait List. ';
+        var finalLine = '\n';
+        //Message original or HTML
+        //var message = messageLine1 + messageLine2 + messageLine3 + messageLine4.italics() +  finalLine;
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~MESSAGE FORMATTED BELOW THIS~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        var message =  
+            '<body>' + 
+              '<img src="https://midwaybc.ca/wp-content/uploads/2017/12/Greenwood-pool-logo-300x126.jpg"><br><br>' + 
+              'Thank you for registering ' + childName + ' for RCSK '  + class + ' in ' + session + ' at the Greenwood Municipal Swimming Pool. <br/>' +
+                '<p></p>' +
+                'The outstanding balance for this registration is: ' + cost + ' ' +
+                '<p> If you have registered any other children or for any other sessions you can expect emails confirming those registrations shortly. </p>' +
+                '<i> <h5>Please ensure you pay your outstanding fees at least a week prior to your program start date, unpaid accounts risk losing their placement to those on the Wait List.</h5> </i>' +
+                '<b>Options for payment:</b>' +
+                '<h5>        Ensure you bring a copy of this email (either physical or digital) to the City Hall if you choose this option.</h5> <ul>'+
+                '<li>   Debit at City Hall in Greenwood (regular hours Monday to Friday 8:30 to 4:30, closed from 12:00 to 1:00)</li>' +
+                '<li>   Cash or cheque to the Greenwood Municipal Swimming Pool  </li>'
+            '</ul></body>'
         Logger.log(message);
-        //var emailRange = theSheet.getRange(number, 14).getValue();
       
-        //var subject = 'Testing Email Confirmations V3'; //Subject of the email (WORKING)
-        //MailApp.sendEmail(emailRange, subject, message); //Send the email (WORKING)
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        var emailRange = theSheet.getRange(number, 14).getValue();
+        Logger.log(emailRange);
+        var subject = 'Testing Email Confirmations V5';
+      MailApp.sendEmail(emailRange, subject, message, {htmlBody: message}); //Send the email (WORKING)
         
         theSheet.getRange(number,17).setValue('Yes'); //Set the emailed bool
         number +=1; //go to the next row (WORKING)
