@@ -42,7 +42,7 @@ function sendEmails(numberStart){
           } else if(class == "National Lifeguard Certification"){
             cost = "$250";
           } else{
-            cost = "\n\nERROR please contact pool.greenwoodcity@gmail.com for more information.\n\n";
+            cost = "\n\nERROR please contact EMAIL for more information.\n\n";
           }
         }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,9 +81,9 @@ function sendEmails(numberStart){
                 '<h5>        Ensure you bring a copy of this email (either physical or digital) to the City Hall if you choose to pay at city hall.</h5> <ul>'+
                 '<li>   Debit at City Hall in Greenwood (regular hours Monday to Friday 8:30 to 4:30, closed from 12:00 to 1:00)</li>' +
                 '<li>   Cash or cheque to the Greenwood Municipal Swimming Pool  </li>' + 
-                '<li>   eTransfer to <b>finance.greenwoodcity@shaw.ca</b> use the password <b>pool2019</b>  </li>' + 
+                '<li>   eTransfer to <b>EMAIL</b> use the password <b>PASSWORD</b>  </li>' + 
             '</ul>' +
-              '<br> If you have any questions or concerns, please reply to this email or call us at <b> 250-445-2211</b>'
+              '<br> If you have any questions or concerns, please reply to this email or call us at <b> PHONENUMBER</b>'
             '</body>'
         } else if (class == "Junior Lifeguard Camp"){
           var startDate = "July 29nd";
@@ -111,9 +111,9 @@ function sendEmails(numberStart){
                 '<h5>        Ensure you bring a copy of this email (either physical or digital) to the City Hall if you choose to pay at city hall.</h5> <ul>'+
                 '<li>   Debit at City Hall in Greenwood (regular hours Monday to Friday 8:30 to 4:30, closed from 12:00 to 1:00)</li>' +
                 '<li>   Cash or cheque to the Greenwood Municipal Swimming Pool  </li>' + 
-                '<li>   eTransfer to <b>finance.greenwoodcity@shaw.ca</b> use the password <b>pool2019</b>  </li>' + 
+                '<li>   eTransfer to <b>EMAIL</b> use the password <b>PASSWORD</b>  </li>' + 
             '</ul>' +
-              '<br> If you have any questions or concerns, please reply to this email or call us at <b> 250-445-2211</b>'
+              '<br> If you have any questions or concerns, please reply to this email or call us at <b> PHONENUMBER</b>'
             '</body>'
         } else if (class == "Bronze Cross & Medallion"){
           var startDate = "August 12th";
@@ -135,9 +135,9 @@ function sendEmails(numberStart){
                 '<h5>        Ensure you bring a copy of this email (either physical or digital) to the City Hall if you choose to pay at city hall.</h5> <ul>'+
                 '<li>   Debit at City Hall in Greenwood (regular hours Monday to Friday 8:30 to 4:30, closed from 12:00 to 1:00)</li>' +
                 '<li>   Cash or cheque to the Greenwood Municipal Swimming Pool  </li>' + 
-                '<li>   eTransfer to <b>finance.greenwoodcity@shaw.ca</b> use the password <b>pool2019</b>  </li>' + 
+                '<li>   eTransfer to <b>EMAIL</b> use the password <b>PASSWORD</b>  </li>' + 
             '</ul>' +
-              '<br> If you have any questions or concerns, please reply to this email or call us at <b> 250-445-2211</b>'
+              '<br> If you have any questions or concerns, please reply to this email or call us at <b> PHONENUMBER</b>'
             '</body>'
         }  else if (class == "National Lifeguard Certification"){
           var startDate = "July 8th";
@@ -159,9 +159,9 @@ function sendEmails(numberStart){
                 '<h5>        Ensure you bring a copy of this email (either physical or digital) to the City Hall if you choose to pay at city hall.</h5> <ul>'+
                 '<li>   Debit at City Hall in Greenwood (regular hours Monday to Friday 8:30 to 4:30, closed from 12:00 to 1:00)</li>' +
                 '<li>   Cash or cheque to the Greenwood Municipal Swimming Pool  </li>' + 
-                '<li>   eTransfer to <b>finance.greenwoodcity@shaw.ca</b> use the password <b>pool2019</b>  </li>' + 
+                '<li>   eTransfer to <b>EMAIL</b> use the password <b>PASSWORD</b>  </li>' + 
             '</ul>' +
-              '<br> If you have any questions or concerns, please reply to this email or call us at <b> 250-445-2211</b>'
+              '<br> If you have any questions or concerns, please reply to this email or call us at <b>PASSWORD</b>'
             '</body>'
         } 
         else{ 
@@ -177,9 +177,9 @@ function sendEmails(numberStart){
                 '<h5>        Ensure you bring a copy of this email (either physical or digital) to the City Hall if you choose to pay at city hall.</h5> <ul>'+
                 '<li>   Debit at City Hall in Greenwood (regular hours Monday to Friday 8:30 to 4:30, closed from 12:00 to 1:00)</li>' +
                 '<li>   Cash or cheque to the Greenwood Municipal Swimming Pool  </li>' + 
-                '<li>   eTransfer to <b>finance.greenwoodcity@shaw.ca</b> use the password <b>pool2019</b>  </li>' + 
+                '<li>   eTransfer to <b>EMAIL</b> use the password <b>PASSWORD</b>  </li>' + 
             '</ul>' +
-              '<br> If you have any questions or concerns, please reply to this email or call us at <b> 250-445-2211</b>'
+              '<br> If you have any questions or concerns, please reply to this email or call us at <b>PHONENUMBER</b>'
             '</body>'
         }
           
@@ -188,10 +188,10 @@ function sendEmails(numberStart){
         var emailRange = theSheet.getRange(number, 14).getValue();
         Logger.log(emailRange);
         var subject = 'Greenwood Municipal Pool: Booking Confirmation';
-        MailApp.sendEmail(emailRange, subject, message, {htmlBody: message}); //Send the email (WORKING)
+        MailApp.sendEmail(emailRange, subject, message, {htmlBody: message}); //Send the email
         
         theSheet.getRange(number,16).setValue('Yes'); //Set the emailed bool
-        number = number + 1; //go to the next row (WORKING)
+        number = number + 1; //go to the next row
         sendEmails(number);
       }
 }
