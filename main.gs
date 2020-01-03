@@ -1,3 +1,4 @@
+//Written by Andrew Dunham Summer 2019
 function runEmails(){
   sendEmails(3);
 }
